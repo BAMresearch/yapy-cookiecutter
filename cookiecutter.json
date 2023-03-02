@@ -2,7 +2,7 @@
     "full_name": "Ingo Breßler",
     "email": "dev@ingobressler.net",
     "website": "https://ingobressler.net",
-    "project_name": "My Dummy Project",
+    "project_name": "My Test Project",
     "repo_name": "{{ cookiecutter.project_name|lower|replace(' ','-') }}",
     "repo_hosting": ["github.com", "git.bam.de", "gitlab.com", "other domain not listed"],
     "repo_hosting_domain": "{{ cookiecutter.repo_hosting if cookiecutter.repo_hosting != 'other domain not listed' else '' }}",
