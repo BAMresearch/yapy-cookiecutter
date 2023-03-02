@@ -3,8 +3,13 @@
 import os
 {% endif -%}
 {%- if cookiecutter.sphinx_theme != 'sphinx-rtd-theme' -%}
+{%- if cookiecutter.sphinx_theme != 'furo' -%}
 import {{ cookiecutter.sphinx_theme|replace('-', '_') }}
-{% endif %}
+{%- endif -%}
+{%- endif %}
+
+import subprocess
+from os.path import abspath, dirname, join
 
 import toml
 
@@ -44,10 +49,12 @@ extlinks = {
 
 {%- if cookiecutter.sphinx_theme != 'sphinx-rtd-theme' %}
 html_theme = '{{ cookiecutter.sphinx_theme|replace("-", "_") }}'
+{%- if cookiecutter.sphinx_theme != 'furo' %}
 html_theme_path = [{{ cookiecutter.sphinx_theme|replace('-', '_') }}.get_html_theme_path()]
 html_theme_options = {
     'githuburl': 'https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/',
 }
+{%- endif %}
 {%- else %}
 # on_rtd is whether we are on readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
@@ -60,7 +67,10 @@ html_use_smartypants = True
 html_last_updated_fmt = '%b %d, %Y'
 html_split_index = False
 html_sidebars = {
-    '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
+    '**': [{%- if cookiecutter.sphinx_theme != 'furo' %}'searchbox.html',{%- endif -%}
+           'globaltoc.html',
+           {%- if cookiecutter.sphinx_theme != 'furo' %}'sourcelink.html'{%- endif -%}
+    ],
 }
 html_short_title = '%s-%s' % (project, version)
 

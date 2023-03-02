@@ -40,7 +40,7 @@ def exec_in_env():
         check_call([bin_path / "pip", "install", "jinja2", "tox"])
     python_executable = bin_path / "python"
     if not python_executable.exists():
-        ython_executable = python_executable.with_suffix('.exe')
+        python_executable = python_executable.with_suffix('.exe')
 
     print("Re-executing with: {0}".format(python_executable))
     print("+ exec", python_executable, __file__, "--no-env")

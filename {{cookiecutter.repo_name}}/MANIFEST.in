@@ -6,6 +6,7 @@ graft tests
 include .coveragerc
 include .editorconfig
 include .pre-commit-config.yaml
+include .cookiecutterrc
 include tox.ini
 
 include AUTHORS.rst
