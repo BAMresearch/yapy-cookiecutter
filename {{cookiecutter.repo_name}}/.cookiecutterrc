@@ -1,0 +1,11 @@
+# This file exists so you can easily regenerate your project.
+# run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=.cookiecutterrc gh:BAMresearch/yapy-cookiecutter
+
+default_context:
+{%- for key, value in cookiecutter.items() %}
+{%- if not key.startswith('_') %}
+    {{ "{0:26}".format(key + ":") }} {{ "{0!r}".format(value).strip("u") }}
+{%- endif %}
+{%- endfor %}

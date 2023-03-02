@@ -1,0 +1,17 @@
+graft docs
+graft src
+graft ci
+graft tests
+
+include .coveragerc
+include .editorconfig
+include .pre-commit-config.yaml
+include tox.ini
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.rst
+
+global-exclude *.py[cod] __pycache__/* *.so *.dylib .DS_Store
