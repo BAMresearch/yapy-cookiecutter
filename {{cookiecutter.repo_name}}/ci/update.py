@@ -7,6 +7,7 @@ import os
 import pathlib
 import subprocess
 import sys
+
 import toml
 
 base_path: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent

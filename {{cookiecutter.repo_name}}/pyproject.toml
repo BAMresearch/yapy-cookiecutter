@@ -1,9 +1,7 @@
 [project]
 name = "{{ cookiecutter.distribution_name }}"
 description = {{ '{0!r}'.format(cookiecutter.project_short_description).lstrip('ub')|replace("'",'"') }}
-authors = [{ name = {{ '{0!r}'.format(cookiecutter.full_name).lstrip("ub")|replace("'",'"') }},
-             email = {{ '{0!r}'.format(cookiecutter.email).lstrip("ub")|replace("'",'"') }}
-            }]
+authors = [{ name = {{ '{0!r}'.format(cookiecutter.full_name).lstrip("ub")|replace("'",'"') }}, email = {{ '{0!r}'.format(cookiecutter.email).lstrip("ub")|replace("'",'"') }} }]
 dynamic = ["version", "readme"]
 license = {text = "{{ cookiecutter.license }}"}
 classifiers = [

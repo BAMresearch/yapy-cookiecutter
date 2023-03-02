@@ -29,7 +29,7 @@ project = {{ '{0!r}'.format(cookiecutter.project_name) }}
 year = '{% if cookiecutter.year_from == cookiecutter.year_to %}{{ cookiecutter.year_from }}{% else %}{{ cookiecutter.year_from }}-{{ cookiecutter.year_to }}{% endif %}'
 author = {{ '{0!r}'.format(cookiecutter.full_name) }}
 copyright = '{0}, {1}'.format(year, author)
-version = '{{ "{0!r}".format(cookiecutter.version) }}'
+version = {{ '{0!r}'.format(cookiecutter.version) }}
 release = version
 commit_id = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).strip().decode('ascii')
 
