@@ -40,7 +40,7 @@ jobs:
           cookiecutter --no-input .
           cd my-test-project
           # add a git repo which some checks expect
-          git init && git add -A && git ci --no-sign -m "Initial."
+          git init && git add -A && git commit --no-sign -m "Initial."
           # remove the link check which will not work here
           sed -i -e '/sphinx-build -b linkcheck/d' tox.ini
           tox
