@@ -172,7 +172,7 @@ You will be asked for these fields:
 
         * BSD license
         * MIT license
-        * Apache Software License 2.0
+        * Apache License 2.0
         * and more …
 
         What license to pick? https://choosealicense.com/

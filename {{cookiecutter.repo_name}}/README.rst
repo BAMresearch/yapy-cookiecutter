@@ -32,7 +32,7 @@ Overview
     :alt: PyPI Package latest release
 
 .. |license| image:: https://img.shields.io/pypi/l/{{ cookiecutter.distribution_name }}.svg
-    :target: https://en.wikipedia.org/wiki/{{ cookiecutter.license }}
+    :target: https://en.wikipedia.org/wiki/{{ cookiecutter.license|truncate(34,end='') }}
     :alt: License
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/{{ cookiecutter.distribution_name }}.svg
