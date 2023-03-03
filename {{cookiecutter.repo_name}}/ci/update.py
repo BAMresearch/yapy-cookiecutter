@@ -74,7 +74,7 @@ def main():
                         for line in tox_environments if line.startswith('py')]
 
     for template in templates_path.rglob('*'):
-        if template.is_file():
+        if template.is_file() and template.name != ".DS_Store":
             template_path = str(template.relative_to(templates_path))
             destination = base_path / template_path
             destination.parent.mkdir(parents=True, exist_ok=True)
