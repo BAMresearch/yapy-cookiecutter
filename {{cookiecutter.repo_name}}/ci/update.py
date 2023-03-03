@@ -87,25 +87,6 @@ def main():
             ))
             print("Wrote {}".format(template_path))
     print("DONE.")
-    # for root, _, files in os.walk(templates_path):
-    #     for name in files:
-    #         if name == ".DS_Store":
-    #             continue
-    #         relative = relpath(root, templates_path)
-    #         # make sure the directory exists
-    #         os.makedirs(join(base_path, relative), exist_ok=True)
-    #         with open(join(base_path, relative, name), "w") as fh:
-    #             fh.write(
-    #                 jinja.get_template(join(relative, name)).render(
-    #                     tox_environments=tox_environments,
-    #                     docs_url=project_meta['project']['urls']['documentation'],
-    #                     cov_report_path=project_meta['tool']['coverage']['report']['path'],
-    #                     # Python version to use for general tasks: docs (when tox did not set one)
-    #                     py_ver='.'.join(sys.version.split('.')[:2]),
-    #                 )
-    #             )
-    #         print("Wrote {}".format(name))
-    # print("DONE.")
 
 
 if __name__ == "__main__":
