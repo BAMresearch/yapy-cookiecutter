@@ -31,7 +31,6 @@ jobs:
         run: tox -e docs -v
 
       - name: Upload generated documentation
-        if: {{"${{ matrix.tox_env == 'docs' }}"}}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: {{'${{ secrets.GITHUB_TOKEN }}'}}
