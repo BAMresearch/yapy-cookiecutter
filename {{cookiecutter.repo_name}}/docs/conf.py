@@ -64,7 +64,7 @@ if not on_rtd:  # only set the theme if we're building docs locally
 {%- endif %}
 
 html_use_smartypants = True
-html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = f'%b %d, %Y (git {commit_id})'
 html_split_index = False
 html_sidebars = {
     '**': [{%- if cookiecutter.sphinx_theme != 'furo' %}'searchbox.html',{%- endif -%}
