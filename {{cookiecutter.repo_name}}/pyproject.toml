@@ -77,6 +77,10 @@ version_variable = [                        # version location
     "src/{{ cookiecutter.package_name }}/__init__.py:__version__",
     "docs/conf.py:version",
 ]
+version_pattern = [
+    "README.rst:v{version}.svg",
+    "README.rst:v{version}...main",
+]
 version_source = "tag"
 prerelease_tag = "dev"
 branch = "main"                             # branch to make releases of
