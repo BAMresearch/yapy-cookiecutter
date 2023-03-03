@@ -6,22 +6,23 @@ import shutil
 import subprocess
 import sys
 
-print("NOTE", __file__)
+print('NOTE', __file__)
 try:
     from click.termui import secho
 except ImportError:
     warn = note = print
 else:
+
     def warn(text):
         for line in text.splitlines():
-            secho(line, fg="white", bg="red", bold=True)
+            secho(line, fg='white', bg='red', bold=True)
 
     def note(text):
         for line in text.splitlines():
-            secho(line, fg="yellow", bold=True)
+            secho(line, fg='yellow', bold=True)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     cwd = Path().resolve()
     src = cwd / 'src'
@@ -33,8 +34,8 @@ if __name__ == "__main__":
         for fn in bckpdir.glob('**/*'):
             if fn.is_dir():
                 continue
-            print("restoring", fn.relative_to(bckpdir))
-            shutil.copy(fn, cwd/fn.relative_to(bckpdir))
+            print('restoring', fn.relative_to(bckpdir))
+            shutil.copy(fn, cwd / fn.relative_to(bckpdir))
 
     shutil.rmtree(bckpdir)
 
@@ -46,22 +47,25 @@ if __name__ == "__main__":
     cwd.joinpath('LICENSE').unlink()
 {% endif %}
 
-    print("""
+    print(
+        """
 ################################################################################
 
     Generating CI configuration ...
-""")
+"""
+    )
     try:
         subprocess.check_call(['tox', '-e', 'bootstrap', '--sitepackages'])
     except Exception as e:
-        print("There was an error!", e)
+        print('There was an error!', e)
         pass
         # try:
         #     subprocess.check_call([sys.executable, '-mtox', '-e', 'bootstrap', '--sitepackages'])
         # except Exception:
         #     subprocess.check_call([sys.executable, ci / 'update.py'])
     else:
-        print("""
+        print(
+            """
 ################################################################################
 ################################################################################
 
@@ -96,4 +100,5 @@ if __name__ == "__main__":
 
         python /ci/update.py --no-env
 
-""")
+"""
+        )
