@@ -68,7 +68,10 @@ def main():
             [sys.executable, '-m', 'tox', '--listenvs'], universal_newlines=True
         ).splitlines()
     ]
-    tox_environments = [line for line in tox_environments if line.startswith('py')]
+    # add a version number to the generic Python3 name (just 'py') for templates to build ok
+    tox_environments = [(line if len(line) > 2 else
+                         line+''.join(sys.version.split('.')[:2]))
+                        for line in tox_environments if line.startswith('py')]
 
     for template in templates_path.rglob('*'):
         if template.is_file():
