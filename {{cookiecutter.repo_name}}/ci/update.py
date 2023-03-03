@@ -69,22 +69,26 @@ def main():
         ).splitlines()
     ]
     # add a version number to the generic Python3 name (just 'py') for templates to build ok
-    tox_environments = [(line if len(line) > 2 else
-                         line+''.join(sys.version.split('.')[:2]))
-                        for line in tox_environments if line.startswith('py')]
+    tox_environments = [
+        (line if len(line) > 2 else line + ''.join(sys.version.split('.')[:2]))
+        for line in tox_environments
+        if line.startswith('py')
+    ]
 
     for template in templates_path.rglob('*'):
         if template.is_file() and template.name != ".DS_Store":
             template_path = str(template.relative_to(templates_path))
             destination = base_path / template_path
             destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_text(jinja.get_template(template_path).render(
-                tox_environments=tox_environments,
-                docs_url=project_meta['project']['urls']['documentation'],
-                cov_report_path=project_meta['tool']['coverage']['report']['path'],
-                # Python version to use for general tasks: docs (when tox did not set one)
-                py_ver='.'.join(sys.version.split('.')[:2]),
-            ))
+            destination.write_text(
+                jinja.get_template(template_path).render(
+                    tox_environments=tox_environments,
+                    docs_url=project_meta['project']['urls']['documentation'],
+                    cov_report_path=project_meta['tool']['coverage']['report']['path'],
+                    # Python version to use for general tasks: docs (when tox did not set one)
+                    py_ver='.'.join(sys.version.split('.')[:2]),
+                )
+            )
             print("Wrote {}".format(template_path))
     print("DONE.")
 
