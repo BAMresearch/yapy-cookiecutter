@@ -20,15 +20,13 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
   * based on `pyproject.toml`
   * no `setup.py` or `setup.cfg`
 
-* Generates GitHub workflow files for CI/CD
+* Generates GitHub workflow files for CI/CD, which
 
-  1. running tests matrix out of multiple Python versions and OS platforms
-  2. set release version number
-  3. generate documentation
-  4. build package
-  5. upload to PyPI (test.pypi by default)
-
-    * Creates GitHub release page for regular releases
+  #. run tests matrix of multiple Python versions and OS platforms
+  #. set release version number
+  #. generate documentation
+  #. build packages (binary and source)
+  #. upload the packages to PyPI (test.pypi by default) and create a GitHub release page for regular releases
 
 * Tox_ for managing test environments for Python 3.7+
 * Pytest_ for testing Python 3.7+
