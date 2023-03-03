@@ -7,7 +7,7 @@
     "repo_hosting": ["github.com", "git.bam.de", "gitlab.com", "other domain not listed"],
     "repo_hosting_domain": "{{ cookiecutter.repo_hosting if cookiecutter.repo_hosting != 'other domain not listed' else '' }}",
     "repo_userorg": "BAMresearch",
-    "docs_url": "https://{{ cookiecutter.repo_userorg }}.{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_name }}",
+    "docs_url": "https://{{ cookiecutter.repo_userorg }}.{{ cookiecutter.repo_hosting_domain|lower|replace('github.com','github.io') }}/{{ cookiecutter.repo_name }}",
     "repo_main_branch": "main",
     "package_name": "{{ cookiecutter.project_name|lower|replace(' ','_')|replace('-','_') }}",
     "distribution_name": "{{ cookiecutter.package_name|replace('_','-') }}",
