@@ -23,15 +23,16 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
 * Generates GitHub workflow files for CI/CD
 
   1. running tests matrix out of multiple Python versions and OS platforms
-  1. set release version number
-  1. generate documentation
-  1. build package
-  1. upload to PyPI (test.pypi by default)
-     * Creates GitHub release page for regular releases
+  2. set release version number
+  3. generate documentation
+  4. build package
+  5. upload to PyPI (test.pypi by default)
+
+    * Creates GitHub release page for regular releases
 
 * Tox_ for managing test environments for Python 3.7+
 * Pytest_ for testing Python 3.7+
-* Code coverage report of all tests compiled by `pytest-cov` for coverage tracking, added to the online documentation
+* Code coverage report of all tests compiled by ``pytest-cov`` for coverage tracking, added to the online documentation
 * Documentation with Sphinx_ to be hosted on GitHub Pages
 * Choice of various licenses.
 * Configurations for:
@@ -40,12 +41,11 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
   * blue_
   * flake8_
 
-* Support for C extensions (including coverage measurement for the C code). See c_extension_support_.
 * Packaging and code quality checks. This template comes with a tox environment (``check``) that will:
 
   * Check if your ``README.rst`` is valid.
   * Check if the ``MANIFEST.in`` has any issues.
-  * Run ``flake8`` (a combo of PEP8, pyflakes and McCabe checks) or ``pylama``
+  * Run ``flake8`` (a combo of PEP8, pyflakes and McCabe checks)
 
 Requirements
 ------------
@@ -60,8 +60,8 @@ To get quickly started on a new system, just `install pip
 
   pip install tox cookiecutter
 
-Usage and options [TODO]
-------------------------
+Usage and options
+-----------------
 
 First generate your project::
 
@@ -99,7 +99,7 @@ You will be asked for these fields:
     * - ``website``
       - .. code:: python
 
-            "https://ingobressler.net"
+            "https://github.com/ibressler"
       - Website of the author (used in ``AUTHORS.rst``).
 
         Can be set in your ``~/.cookiecutterrc`` config file.
@@ -115,7 +115,7 @@ You will be asked for these fields:
     * - ``project_name``
       - .. code:: python
 
-            "My Dummy Project"
+            "My Test Project"
       - Verbose project name, used in headings (docs, readme, etc).
 
     * - ``repo_hosting_domain``
@@ -127,19 +127,19 @@ You will be asked for these fields:
     * - ``repo_name``
       - .. code:: python
 
-            "my-dummy-project"
+            "my-test-project"
       - Repository name on GitHub (and project's root directory name). Derived from the ``project_name``.
 
     * - ``package_name``
       - .. code:: python
 
-            "my_dummy_project"
+            "my_test_project"
       - Python package name (whatever you would import), with underscores for spaces. Derived from the ``project_name``.
 
     * - ``distribution_name``
       - .. code:: python
 
-            "my-dummy-project"
+            "my-test-project"
       - PyPI distribution name (what you would ``pip install``), with dashes for spaces. Derived from the ``project_name``.
 
     * - ``project_short_description``
@@ -164,7 +164,7 @@ You will be asked for these fields:
       - .. code:: python
 
             "0.1.0"
-      - Release version (see ``pyproject.toml``, ```` and in Sphinx ``conf.py``).
+      - Release version (see ``pyproject.toml``, ``src/my_test_project/__init__.py`` and in Sphinx ``docs/conf.py``).
 
     * - ``license``
       - .. code:: python
@@ -174,8 +174,8 @@ You will be asked for these fields:
 
         * BSD license
         * MIT license
-        * ISC license
         * Apache Software License 2.0
+        * and more …
 
         What license to pick? https://choosealicense.com/
 
@@ -199,7 +199,7 @@ initial bootstrap ``tox.ini``, to get the initial generation going just run::
 
   tox
 
-You can later regenerate ``tox.ini`` by running::
+You can later regenerate files in ``.github/workflows`` by running::
 
   tox -e bootstrap
 
@@ -209,16 +209,8 @@ project)::
   git init .
   git add .
   git commit -m "Initial skel."
-  git remote add origin git@github.com:ionelmc/python-nameless.git
+  git remote add origin git@github.com:ibressler/my-test-project.git
   git push -u origin master
-
-Then optionally:
-
-* `Enable the repository in your Travis CI account <https://travis-ci.com/account/migrate>`_.
-* `Enable the repository in your Coveralls account <https://coveralls.io/repos/new>`_.
-* `Add the repo to your ReadTheDocs account <https://readthedocs.org/dashboard/import/>`_ + turn on the ReadTheDocs
-  service hook. Don't forget to enable virtualenv and specify ``docs/requirements.txt`` as the requirements file in
-  `Advanced Settings`.
 
 Developing the project
 ``````````````````````
@@ -246,7 +238,14 @@ Before releasing your package on PyPI you should have all the tox environments p
 Version management
 ''''''''''''''''''
 
-This template provides a semantic-version_ configuration. It raises the version number by parsing the GIT commit history. Commits starting with `fix(…): …` will increase the patch version number (`1.0.0` to `1.0.1`) and commit messages starting with `feat(…): …` will increase the minor version number (`1.0.0` to `1.1.0`). Commits with `BREAKING CHANGE:` in the footer will increase the major version number `1.0.0` to `2.0.0`. All other changes will generate a new pre-release version number (`1.0.1` to `1.0.2-dev.1`). This behavior is implemented by the GitHub action workflow files and templates in `ci/templates`.
+This template provides a semantic-release_ configuration. It raises the version number by parsing the GIT commit history:
+
+* Commits starting with ``fix(…): …`` will increase the patch version number (``1.0.0`` to ``1.0.1``) and
+* Commit messages starting with ``feat(…): …`` will increase the minor version number (``1.0.0`` to ``1.1.0``).
+* Commits with ``BREAKING CHANGE:`` in the message footer will increase the major version number ``1.0.0`` to ``2.0.0``.
+* All other changes will generate a new pre-release version number (``1.0.1`` to ``1.0.2-dev.1``).
+
+This behavior is implemented by the GitHub action workflow files and templates in ``ci/templates``.
 
 For the basic convention of semantic version numbering, please see `Semantic Versioning 2.0.0 <http://semver.org/>`_ and the commit message format expected here is documented in the `AngularJS project <https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines>`_.
 
@@ -275,17 +274,6 @@ To make a release of the project on PyPI, assuming you got some distributions in
 
     twine upload --skip-existing dist/*.whl dist/*.gz dist/*.zip
 
-In ZSH you can use this to upload everything in ``dist/`` that ain't a linux-specific wheel (you may need ``setopt extended_glob``)::
-
-    twine upload --skip-existing dist/*.(whl|gz|zip)~dist/*linux*.whl
-
-For making and uploading `manylinux1 <https://github.com/pypa/manylinux>`_ wheels you can use this contraption::
-
-    docker run --rm -itv $(pwd):/code quay.io/pypa/manylinux1_x86_64 bash -c 'set -eux; cd code; rm -rf wheelhouse; for variant in /opt/python/*; do rm -rf dist build *.egg-info && $variant/bin/python -m build; auditwheel repair dist/*.whl; done; rm -rf dist build *.egg-info'
-    twine upload --skip-existing wheelhouse/*.whl
-    docker run --rm -itv $(pwd):/code quay.io/pypa/manylinux1_i686 bash -c 'set -eux; cd code; rm -rf wheelhouse; for variant in /opt/python/*; do rm -rf dist build *.egg-info && $variant/bin/python -m build; auditwheel repair dist/*.whl; done; rm -rf dist build *.egg-info'
-    twine upload --skip-existing wheelhouse/*.whl
-
 Note:
 
     `twine <https://pypi.org/project/twine>`_ is a tool that you can use to securely upload your releases to PyPI.
@@ -299,10 +287,6 @@ Please see the GIT commit history ;)
 
 Questions & answers
 -------------------
-
-There's no Makefile?
-
-  Sorry, no ``Makefile`` yet. The Tox_ environments stand for whatever you'd have in a ``Makefile``.
 
 Why does ``tox.ini`` have a ``passenv = *``?
 
@@ -318,7 +302,7 @@ Why is the version stored in several files (``pkg/__init__.py``, ``docs/conf.py`
   with ``__init__.py``) and modules (simple ``.py`` files that go straight in ``site-packages``). There's no good place
   for that extra file if you're distributing modules.
 
-  But this isn't so bad - semantic-version_ manages the version string quite
+  But this isn't so bad - semantic-release_ manages the version string quite
   neatly.
 
 .. [#] Example, an ``__about__.py`` file.
