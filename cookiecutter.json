@@ -34,5 +34,7 @@
                      "sphinx-py3doc-enhanced-theme",
                      "sphinx-book-theme",
                      "pydata-sphinx-theme"],
+    "extra_context": {"exclude_existing":
+        "['AUTHORS.rst', 'CHANGELOG.rst', 'src/{{ cookiecutter.package_name }}/__init__.py']" },
     "_copy_without_render": ["ci/templates/.github"]
 }

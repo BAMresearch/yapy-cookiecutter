@@ -1,4 +1,7 @@
-import pathlib
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from pathlib import Path
 import shutil
 import subprocess
 import sys
@@ -20,9 +23,20 @@ else:
 
 if __name__ == "__main__":
 
-    cwd = pathlib.Path().resolve()
+    cwd = Path().resolve()
     src = cwd / 'src'
     ci = cwd / 'ci'
+
+    # restore excluded files from backup, see pre_gen_project.py hook
+    bckpdirs = list(cwd.glob('cookiecutter.*.backup'))
+    for bckpdir in bckpdirs:
+        for fn in bckpdir.glob('**/*'):
+            if fn.is_dir():
+                continue
+            print("restoring", fn.relative_to(bckpdir))
+            shutil.copy(fn, cwd/fn.relative_to(bckpdir))
+
+    shutil.rmtree(bckpdir)
 
 {%- if cookiecutter.repo_hosting == 'no' %}
     cwd.joinpath('CONTRIBUTING.rst').unlink()
