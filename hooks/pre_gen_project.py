@@ -6,7 +6,7 @@ import tempfile
 import shutil
 import sys
 
-print('NOTE', __file__)
+#print('NOTE', __file__)
 
 
 if __name__ == '__main__':

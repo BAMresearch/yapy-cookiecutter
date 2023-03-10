@@ -6,7 +6,7 @@ import shutil
 import subprocess
 import sys
 
-print('NOTE', __file__)
+#print('NOTE', __file__)
 try:
     from click.termui import secho
 except ImportError:
