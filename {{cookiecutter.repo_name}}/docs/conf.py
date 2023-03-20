@@ -66,17 +66,15 @@ if not on_rtd:  # only set the theme if we're building docs locally
 html_use_smartypants = True
 html_last_updated_fmt = f'%b %d, %Y (git {commit_id})'
 html_split_index = False
+{%  if cookiecutter.sphinx_theme != 'furo' -%}
 html_sidebars = {
     '**': [
-        {%  if cookiecutter.sphinx_theme != 'furo' -%}
         'searchbox.html',
-        {% endif -%}
         'globaltoc.html',
-        {%- if cookiecutter.sphinx_theme != 'furo' %}
         'sourcelink.html',
-        {%- endif %}
     ],
 }
+{%- endif %}
 html_short_title = '%s-%s' % (project, version)
 
 napoleon_use_ivar = True
