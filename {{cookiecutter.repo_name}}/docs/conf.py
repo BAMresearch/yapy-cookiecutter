@@ -26,7 +26,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
-    'sphinx_mdinclude',
+    "myst_parser",
 ]
 source_suffix = '.rst'
 master_doc = 'index'

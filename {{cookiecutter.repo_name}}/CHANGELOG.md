@@ -2,8 +2,7 @@
 Changelog
 =========
 
-..
-  <!--next-version-placeholder-->
+% <!--next-version-placeholder-->
 
 {% set datestring -%}
 {% if cookiecutter.release_date == 'today' -%}
