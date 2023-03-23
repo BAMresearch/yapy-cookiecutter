@@ -28,6 +28,8 @@ extensions = [
     'sphinx.ext.viewcode',
     "myst_parser",
 ]
+autosummary_generate = True  # Turn on sphinx.ext.autosummary
+templates_path = ["_templates"]
 source_suffix = '.rst'
 master_doc = 'index'
 project = {{ '{0!r}'.format(cookiecutter.project_name) }}
@@ -41,7 +43,6 @@ commit_id = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).str
 autodoc_mock_imports = ["ipykernel", "notebook", "pandas", "ipywidgets", "matplotlib", "scipy"]
 
 pygments_style = 'trac'
-templates_path = ['.']
 extlinks = {
     'issue': (join(project_meta['project']['urls']['repository'], 'issues', '%s'), '#%s'),
     'pr': (join(project_meta['project']['urls']['repository'], 'pull', '%s'), 'PR #%s'),
