@@ -33,7 +33,7 @@ autosummary_generate = True  # Turn on sphinx.ext.autosummary
 templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
-project = {{"{0!r}".format(cookiecutter.project_name)}}
+project = {{'"{0!r}"'.format(cookiecutter.project_name)}}
 year = "{% if cookiecutter.year_from == cookiecutter.year_to %}{{ cookiecutter.year_from }}{% else %}{{ cookiecutter.year_from }}-{{ cookiecutter.year_to }}{% endif %}"
 author = {{"{0!r}".format(cookiecutter.full_name)}}
 copyright = "{0}, {1}".format(year, author)
