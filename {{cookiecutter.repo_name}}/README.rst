@@ -6,6 +6,7 @@ Overview
 
 .. start-badges
 
+| |version| |commits-since| |license|
 | |supported-versions| |wheel| |downloads|
 | |cicd| |coverage|
 
