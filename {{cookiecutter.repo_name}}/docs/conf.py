@@ -33,11 +33,11 @@ autosummary_generate = True  # Turn on sphinx.ext.autosummary
 templates_path = ["_templates"]
 source_suffix = ".rst"
 master_doc = "index"
-project = {{'"{0!r}"'.format(cookiecutter.project_name)}}
+project = {{"{0!r}".format(cookiecutter.project_name)|replace("'",'"')}}
 year = "{% if cookiecutter.year_from == cookiecutter.year_to %}{{ cookiecutter.year_from }}{% else %}{{ cookiecutter.year_from }}-{{ cookiecutter.year_to }}{% endif %}"
-author = {{"{0!r}".format(cookiecutter.full_name)}}
+author = {{"{0!r}".format(cookiecutter.full_name)|replace("'",'"')}}
 copyright = "{0}, {1}".format(year, author)
-version = {{"{0!r}".format(cookiecutter.version)}}
+version = {{"{0!r}".format(cookiecutter.version)|replace("'",'"')}}
 release = version
 commit_id = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("ascii")
 
@@ -60,7 +60,7 @@ extlinks = {
 }
 
 {%- if cookiecutter.sphinx_theme != "sphinx-rtd-theme" %}
-html_theme = '{{ cookiecutter.sphinx_theme|replace("-", "_") }}'
+html_theme = "{{ cookiecutter.sphinx_theme|replace("-", "_") }}"
 {%- if cookiecutter.sphinx_theme != "furo" %}
 html_theme_path = [{{cookiecutter.sphinx_theme | replace("-", "_")}}.get_html_theme_path()]
 html_theme_options = {
@@ -72,7 +72,7 @@ html_theme_options = {
 on_rtd = os.environ.get("READTHEDOCS", None) == "True"
 
 if not on_rtd:  # only set the theme if we're building docs locally
-    html_theme = '{{ cookiecutter.sphinx_theme|replace("-", "_") }}'
+    html_theme = "{{ cookiecutter.sphinx_theme|replace("-", "_") }}"
 {%- endif %}
 
 html_use_smartypants = True
