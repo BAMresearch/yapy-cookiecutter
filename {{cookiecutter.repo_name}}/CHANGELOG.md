@@ -9,7 +9,6 @@ Changelog
 {% now 'utc', '%Y-%m-%d' %}
 {%- else %}{{ cookiecutter.release_date }}{% endif %}
 {%- endset %}
-{{ cookiecutter.version }} ({{ datestring }})
-{% for _ in cookiecutter.version %}-{% endfor %}--{{ '-' * (datestring|length) }}-
+## {{ cookiecutter.version }} ({{ datestring }})
 
 * First release
