@@ -6,50 +6,40 @@ Overview
 
 .. start-badges
 
-| |version| |commits-since| |license|
-| |build| |supported-versions| |wheel| |downloads|
-| |tests| |coverage|
-| |docs|
-
-.. |docs| image:: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/actions/workflows/docs.yml/badge.svg
-    :target: {{ cookiecutter.docs_url }}
-    :alt: Documentation Status
-
-.. |build| image:: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/actions/workflows/build.yml/badge.svg
-    :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}
-    :alt: GitHub Actions Build Status
-
-.. |tests| image:: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/actions/workflows/tests.yml/badge.svg
-    :target: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/actions
-    :alt: GitHub Actions Tests Status
-
-.. |coverage| image:: https://img.shields.io/endpoint?url={{ cookiecutter.docs_url }}/coverage-report/cov.json
-    :target: {{ cookiecutter.docs_url }}/coverage-report/
-    :alt: Coverage report
+| |supported-versions| |wheel| |downloads|
+| |cicd| |coverage|
 
 .. |version| image:: https://img.shields.io/pypi/v/{{ cookiecutter.distribution_name }}.svg
     :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}
     :alt: PyPI Package latest release
 
+.. |commits-since| image:: https://img.shields.io/github/commits-since/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/v{{ cookiecutter.version }}.svg
+    :target: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/compare/v{{ cookiecutter.version }}...{{ cookiecutter.repo_main_branch }}
+    :alt: Commits since latest release
+
 .. |license| image:: https://img.shields.io/pypi/l/{{ cookiecutter.distribution_name }}.svg
     :target: https://en.wikipedia.org/wiki/{{ cookiecutter.license|truncate(34,end='')|replace(" ","_") }}
     :alt: License
-
-.. |wheel| image:: https://img.shields.io/pypi/wheel/{{ cookiecutter.distribution_name }}.svg
-    :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}#files
-    :alt: PyPI Wheel
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/{{ cookiecutter.distribution_name }}.svg
     :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}
     :alt: Supported versions
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/v{{ cookiecutter.version }}.svg
-    :target: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/compare/v{{ cookiecutter.version }}...{{ cookiecutter.repo_main_branch }}
-    :alt: Commits since latest release
+.. |wheel| image:: https://img.shields.io/pypi/wheel/{{ cookiecutter.distribution_name }}.svg
+    :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}#files
+    :alt: PyPI Wheel
 
 .. |downloads| image:: https://img.shields.io/pypi/dw/{{ cookiecutter.distribution_name }}.svg
     :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}/
     :alt: Weekly PyPI downloads
+
+.. |cicd| image:: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}/actions/workflows/ci-cd.yml/badge.svg
+    :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}/actions/workflows/ci-cd.yml
+    :alt: Continuous Integration and Deployment Status
+
+.. |coverage| image:: https://img.shields.io/endpoint?url={{ cookiecutter.docs_url }}/coverage-report/cov.json
+    :target: {{ cookiecutter.docs_url }}/coverage-report/
+    :alt: Coverage report
 
 .. end-badges
 
