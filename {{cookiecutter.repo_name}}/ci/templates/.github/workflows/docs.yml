@@ -2,9 +2,6 @@ name: Docs
 
 # Controls when the action will run.
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
   workflow_call:
 
 {% import '.github/workflows/ci-cd.yml' as ci with context %}{# Use some Jinja macros -#}
@@ -30,8 +27,14 @@ jobs:
       - name: Generate documentation
         run: tox -e docs -v
 
-      - name: Upload generated documentation
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload docs for finalization later
+        uses: actions/upload-artifact@v3
         with:
-          github_token: {{'${{ secrets.GITHUB_TOKEN }}'}}
-          publish_dir: ./dist/docs
+          name: docs
+          path: dist/docs
+
+      # - name: Upload generated documentation
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: {{'${{ secrets.GITHUB_TOKEN }}'}}
+      #     publish_dir: ./dist/docs
