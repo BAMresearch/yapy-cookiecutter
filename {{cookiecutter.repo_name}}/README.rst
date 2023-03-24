@@ -34,8 +34,8 @@ Overview
     :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}/
     :alt: Weekly PyPI downloads
 
-.. |cicd| image:: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}/actions/workflows/ci-cd.yml/badge.svg
-    :target: https://{{ cookiecutter.pypi_host }}/project/{{ cookiecutter.distribution_name }}/actions/workflows/ci-cd.yml
+.. |cicd| image:: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/actions/workflows/ci-cd.yml/badge.svg
+    :target: https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/actions/workflows/ci-cd.yml
     :alt: Continuous Integration and Deployment Status
 
 .. |coverage| image:: https://img.shields.io/endpoint?url={{ cookiecutter.docs_url }}/coverage-report/cov.json
@@ -54,7 +54,7 @@ Installation
 
 You can also install the in-development version with::
 {% if cookiecutter.repo_hosting_domain == "github.com" %}
-    pip install https://github.com/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/archive/{{ cookiecutter.repo_main_branch }}.zip
+    pip install git+https://{{ cookiecutter.repo_hosting_domain }}/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}.git@{{ cookiecutter.repo_main_branch }}
 {% elif cookiecutter.repo_hosting_domain == "gitlab.com" %}
     pip install https://gitlab.com/{{ cookiecutter.repo_userorg }}/{{ cookiecutter.repo_name }}/-/archive/{{ cookiecutter.repo_main_branch }}/{{ cookiecutter.repo_name }}-{{ cookiecutter.repo_main_branch }}.zip
 {% else %}
