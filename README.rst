@@ -150,7 +150,7 @@ You will be asked for these fields:
       - .. code:: python
 
             "today"
-      - Release date of the project (ISO 8601 format) default to today (used in ``CHANGELOG.rst``).
+      - Release date of the project (ISO 8601 format) default to today (used in ``CHANGELOG.md``).
 
     * - ``year``
       - .. code:: python
