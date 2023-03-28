@@ -16,14 +16,10 @@ classifiers = [
   "License :: OSI Approved :: ISC License (ISCL)",
 {%- elif cookiecutter.license == "Apache License 2.0" %}
   "License :: OSI Approved :: Apache Software License",
+{%- elif "GPLv3+" in cookiecutter.license %}
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
 {%- elif "LGPLv3+" in cookiecutter.license %}
   "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
-{%- elif "LGPLv3" in cookiecutter.license %}
-  "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
-{%- elif "LGPLv2" in cookiecutter.license %}
-  "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
-{%- elif "LGPLv2" in cookiecutter.license %}
-  "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
 {%- endif %}
   "Operating System :: Unix",
   "Operating System :: POSIX",

@@ -22,10 +22,8 @@
         "BSD 3-Clause License",
         "MIT license",
         "Apache License 2.0",
+        "GNU General Public License v3 or later (GPLv3+)",
         "GNU Lesser General Public License v3 or later (LGPLv3+)",
-        "GNU Lesser General Public License v3 (LGPLv3)",
-        "GNU Lesser General Public License v2.1 or later (LGPLv2+)",
-        "GNU Lesser General Public License v2.1 (LGPLv2)",
         "no"
     ],
     "sphinx_theme": ["furo",
