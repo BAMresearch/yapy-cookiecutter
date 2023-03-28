@@ -80,6 +80,9 @@ jobs:
           ref: gh-pages
           path: pages
 
+      - name: Purge old documentation files
+        run: cd pages && git rm -rf .
+
       - name: Download previously generated documentation
         if: {{"${{ github.ref == 'refs/heads/main' }}"}}
         uses: actions/download-artifact@v3
