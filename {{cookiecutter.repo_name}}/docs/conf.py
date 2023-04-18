@@ -39,7 +39,12 @@ author = {{"{0!r}".format(cookiecutter.full_name)|replace("'",'"')}}
 copyright = "{0}, {1}".format(year, author)
 version = {{"{0!r}".format(cookiecutter.version)|replace("'",'"')}}
 release = version
-commit_id = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("ascii")
+commit_id = None
+try:
+    commit_id = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("ascii")
+except subprocess.CalledProcessError as e:
+    print(e)
+
 
 autodoc_mock_imports = [
     "ipykernel",
@@ -76,7 +81,9 @@ if not on_rtd:  # only set the theme if we're building docs locally
 {%- endif %}
 
 html_use_smartypants = True
-html_last_updated_fmt = f"%b %d, %Y (git {commit_id})"
+html_last_updated_fmt = "%b %d, %Y"
+if commit_id:
+    html_last_updated_fmt += f" (git {commit_id})"
 html_split_index = False
 {%  if cookiecutter.sphinx_theme != "furo" -%}
 html_sidebars = {
