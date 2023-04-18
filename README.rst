@@ -36,7 +36,7 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
 * Configurations for:
 
   * isort_
-  * blue_
+  * black_
   * flake8_
 
 * Packaging and code quality checks. This template comes with a tox environment (``check``) that will:
@@ -387,6 +387,8 @@ If you have criticism or suggestions please open up an Issue or Pull Request.
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _Nose: http://nose.readthedocs.org/
 .. _isort: https://pypi.org/project/isort
+.. _black: https://pypi.org/project/black/
+.. _flake8: https://pypi.org/project/flake8
 .. _semantic-release: https://python-semantic-release.readthedocs.io
 .. _Codecov: http://codecov.io/
 .. _Codacy: https://codacy.com/
