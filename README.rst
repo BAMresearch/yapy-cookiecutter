@@ -62,6 +62,7 @@ To get quickly started on a new system, just `install pip
 Usage and options
 -----------------
 
+Please see also the common `cookiecutter use guide <https://cookiecutter.readthedocs.io/en/stable/usage.html>`_.
 First generate your project::
 
   cookiecutter gh:BAMresearch/yapy-cookiecutter
