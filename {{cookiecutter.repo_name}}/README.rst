@@ -19,7 +19,7 @@ Overview
     :alt: Commits since latest release
 
 .. |license| image:: https://img.shields.io/pypi/l/{{ cookiecutter.distribution_name }}.svg
-    :target: https://en.wikipedia.org/wiki/{{ cookiecutter.license|truncate(34,end='')|replace(" ","_") }}
+    :target: https://en.wikipedia.org/wiki/{{ cookiecutter.license|truncate([30,cookiecutter.license.find('(')]|max(),end='')|replace(" v3 or later","")|replace(" ","_") }}
     :alt: License
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/{{ cookiecutter.distribution_name }}.svg
