@@ -41,7 +41,9 @@ version = {{"{0!r}".format(cookiecutter.version)|replace("'",'"')}}
 release = version
 commit_id = None
 try:
-    commit_id = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("ascii")
+    commit_id = (
+        subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("ascii")
+    )
 except subprocess.CalledProcessError as e:
     print(e)
 
