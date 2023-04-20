@@ -20,7 +20,7 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
   * based on `pyproject.toml`
   * no `setup.py` or `setup.cfg`
 
-* Employs automatic semantic versioning based on commit messages, please see :ref:`version-management`
+* Employs automatic semantic versioning based on commit messages, please see version-management_
 * Generates GitHub workflow files for CI/CD, which
 
   #. run tests matrix of multiple Python versions and OS platforms
