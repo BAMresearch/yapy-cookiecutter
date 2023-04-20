@@ -20,6 +20,7 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
   * based on `pyproject.toml`
   * no `setup.py` or `setup.cfg`
 
+* Employs automatic semantic versioning based on commit messages, please see :ref:`version-management`
 * Generates GitHub workflow files for CI/CD, which
 
   #. run tests matrix of multiple Python versions and OS platforms
@@ -232,6 +233,8 @@ To build and verify that the built package is proper and other code QA checks::
 Releasing the project
 `````````````````````
 Before releasing your package on PyPI you should have all the tox environments passing.
+
+.. _version-management:
 
 Version management
 ''''''''''''''''''
