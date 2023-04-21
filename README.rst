@@ -34,12 +34,13 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
 * Code coverage report of all tests compiled by ``pytest-cov`` for coverage tracking, added to the online documentation
 * Documentation with Sphinx_ to be hosted on GitHub Pages
 * Choice of various licenses.
-* Configurations for:
+* Configurations for (also via pre-commit_):
 
   * isort_
   * black_
   * flake8_
 
+* EditorConfig_ - for being picked up by VS-Code_, it seems `a plugin <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>` is needed
 * Packaging and code quality checks. This template comes with a tox environment (``check``) that will:
 
   * Check if your ``README.rst`` is valid.
@@ -397,3 +398,6 @@ If you have criticism or suggestions please open up an Issue or Pull Request.
 .. _Codecov: http://codecov.io/
 .. _Codacy: https://codacy.com/
 .. _CodeClimate: https://codeclimate.com/
+.. _pre-commit: https://pre-commit.com/
+.. _EditorConfig: https://editorconfig.org/
+.. _VS-Code: https://code.visualstudio.com/
