@@ -40,7 +40,7 @@ Related to the original `cookiecutter-pylibrary <https://github.com/ionelmc/cook
   * black_
   * flake8_
 
-* EditorConfig_ - for being picked up by VS-Code_, it seems `a plugin <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>` is needed
+* EditorConfig_ - for being picked up by VS-Code_, it seems `a plugin <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>`_ is needed
 * Packaging and code quality checks. This template comes with a tox environment (``check``) that will:
 
   * Check if your ``README.rst`` is valid.
