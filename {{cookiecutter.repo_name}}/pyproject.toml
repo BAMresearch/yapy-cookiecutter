@@ -69,24 +69,18 @@ path = "coverage-report"
 # and bottom of https://softwareengineering.stackexchange.com/a/151558
 [tool.semantic_release]
 #major_on_zero = false # no major release when current major version is zero
-version_variable = [                        # version location
+version_variables = [                        # version location
     "src/{{ cookiecutter.package_name }}/__init__.py:__version__",
     "docs/conf.py:version",
 ]
-version_pattern = [
-    "README.rst:v{version}.svg",
-    "README.rst:v{version}...main",
-    ".cookiecutterrc:version:                   '{version}'",
-]
-version_source = "tag"
-prerelease_tag = "dev"
-branch = "main"                             # branch to make releases of
-changelog_file = "CHANGELOG.md"             # changelog file
-build_command = "python3 -m build"          # build dists
-upload_to_release = false                   # auto-create GitHub release
-upload_to_pypi = false                      # don't auto-upload to PyPI
-remove_dist = false                         # don't remove dists
-#patch_without_tag = false                   # patch release by default
+[tool.semantic_release.commit_parser_options]
+allowed_tags = ["build", "chore", "ci", "docs", "feat", "enh", "fix", "perf", "style", "refactor", "test"]
+minor_tags = ["feat", "enh"]
+patch_tags = ["fix", "perf"]
+[tool.semantic_release.changelog]
+exclude_commit_patterns = ["chore", ".*\\bGHA\\b.*", ".*\\b[gG][hH] actions?\\b.*"]
+[tool.semantic_release.publish]
+upload_to_vcs_release = false
 
 [tool.black]
 line-length = 100
