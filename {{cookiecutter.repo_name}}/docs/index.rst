@@ -12,6 +12,7 @@ Contents
    contributing
    authors
    changelog
+   View on GitHub <https://{{cookiecutter.repo_hosting}}/{{cookiecutter.repo_userorg}}/{{cookiecutter.repo_name}}>
 
 Indices and tables
 ==================
