@@ -26,19 +26,13 @@ jobs:
       - name: Build
         run: tox -e build -v
 
-      - name: Upload package artifact for publishing job
-        uses: actions/upload-artifact@v3
+      - name: Upload packages for publishing job
+        uses: actions/upload-artifact@v4
         with:
-          name: packages
-          path: dist/*.whl
-
-      - name: Upload source artifact for publishing job
-        # upload source package only once
-        if: {{"${{ matrix.os == 'ubuntu-latest' }}"}}
-        uses: actions/upload-artifact@v3
-        with:
-          name: packages
-          path: dist/*.tar.gz
+          name: {{"packages-${{ matrix.os }}"}}
+          path: |
+              dist/*.whl
+              dist/*.tar.gz
 
   publish:
     needs: [build]
@@ -50,9 +44,10 @@ jobs:
       {{ ci.pip_install_req() }}
 
       - name: Download package artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          name: packages
+          pattern: packages-*
+          merge-multiple: true
           path: dist
 
       - name: Check generated packages

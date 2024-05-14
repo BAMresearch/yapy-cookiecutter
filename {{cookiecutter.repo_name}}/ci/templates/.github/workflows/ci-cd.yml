@@ -38,7 +38,7 @@ jobs:
 
 {%- macro checkout(depth=1) -%}
       - name: Checking out the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         {%- if depth != 1 +%}
         with:
           fetch-depth: {{ depth }}
@@ -48,7 +48,7 @@ jobs:
 {%- macro setup_python(arch, py=py_ver, req=['ci/requirements.txt']) -%}
       # see *py_ver* in ci/update.py
       - name: Setting up Python {{ py }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '{{ py }}'
           {% if arch %}

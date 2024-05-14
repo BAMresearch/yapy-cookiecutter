@@ -25,7 +25,7 @@ jobs:
       {{ ci.pip_install_req() }}
 
       - name: Download coverage data
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: coverage
 
@@ -39,7 +39,7 @@ jobs:
           coverage html --debug=pathmap
 
       - name: Upload HTML report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: html_report
           path: htmlcov
@@ -75,7 +75,7 @@ jobs:
 
       - name: Checkout documentation pages branch
         if: {{"${{ github.ref == 'refs/heads/main' }}"}}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: pages
@@ -85,14 +85,14 @@ jobs:
 
       - name: Download previously generated documentation
         if: {{"${{ github.ref == 'refs/heads/main' }}"}}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docs
           path: pages
 
       - name: Download coverage HTML report
         if: {{"${{ github.ref == 'refs/heads/main' }}"}}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: html_report
           path: {{"pages/${{ env.report_dir }}"}}
