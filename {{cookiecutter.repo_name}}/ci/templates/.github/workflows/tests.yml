@@ -38,8 +38,6 @@ jobs:
 
       {{ ci.pip_install_req() }}
 
-      {{ ci.sys_install_req() }}
-
       - name: Show installed package details
         run: |
           virtualenv --version

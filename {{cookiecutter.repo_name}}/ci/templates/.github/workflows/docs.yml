@@ -18,8 +18,6 @@ jobs:
 
       {{ ci.pip_install_req() }}
 
-      {{ ci.set_version() }}
-
       - name: Check
         run: tox -e check -v
 

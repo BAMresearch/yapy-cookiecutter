@@ -21,8 +21,6 @@ jobs:
 
       {{ ci.pip_install_req() }}
 
-      {{ ci.set_version() }}
-
       - name: Build
         run: tox -e build -v
 
@@ -56,5 +54,6 @@ jobs:
       - name: Upload packages
         env:
           TWINE_PASSWORD: {{'"${{ secrets.'+pypi_token+' }}"'}}
+          TWINE_NON_INTERACTIVE: 1
         run: |
-          twine upload -u __token__ -r {{ pypi_repo }} dist/*.*
+          twine upload --disable-progress-bar --skip-existing -u __token__ -r {{ pypi_repo }} dist/*.*
