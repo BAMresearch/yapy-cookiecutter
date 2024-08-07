@@ -16,12 +16,16 @@ jobs:
 
       {{ ci.setup_python() }}
 
+      {{ ci.sys_install_req() }}
+
       {{ ci.pip_install_req() }}
 
       - name: Check
+        shell: sh
         run: tox -e check -v
 
       - name: Generate documentation
+        shell: sh
         run: tox -e docs -v
 
       - name: Upload docs for finalization later

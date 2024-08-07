@@ -91,7 +91,7 @@ def main():
     ]
 
     for template in templates_path.rglob("*"):
-        if template.is_file() and template.name != ".DS_Store":
+        if template.is_file() and template.name not in (".DS_Store", "CHANGELOG.md.j2"):
             template_path = str(template.relative_to(templates_path))
             destination = base_path / template_path
             destination.parent.mkdir(parents=True, exist_ok=True)

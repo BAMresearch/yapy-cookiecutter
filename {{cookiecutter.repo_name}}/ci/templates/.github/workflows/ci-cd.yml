@@ -61,9 +61,30 @@ jobs:
           {%- endfor -%}
 {%- endmacro -%}
 
+{% macro conda_activate() -%}
+          [ -d "/c/miniconda" ] && /c/miniconda/condabin/activate.bat
+{%- endmacro -%}
+
 {% macro pip_install_req() -%}
       - name: Install dependencies
+        shell: sh
         run: |
+          {{ conda_activate() }}
           python -m pip install --upgrade pip
           python -m pip install --progress-bar=off -r ci/requirements.txt
+{%- endmacro -%}
+
+{% macro sys_install_req() -%}
+      - name: Install required system packages
+        shell: sh
+        run: |
+          PLATFORM="$(echo "$RUNNER_OS" | tr '[:upper:]' '[:lower:]')"
+          REQFN="ci/requirements_$PLATFORM.txt"
+          if [ "$PLATFORM" = "linux" ] && [ -f "$REQFN" ]; then
+            sudo apt-get -y install $(sed -e '/^\s*#/d' "$REQFN")
+          elif [ "$PLATFORM" = "windows" ] && [ -f "$REQFN" ]; then
+            choco install $(sed -e '/^\s*#/d' "$REQFN")
+          else
+            echo "macro sys_install_req(): platform '$PLATFORM' not implemented yet."
+          fi
 {%- endmacro +%}
