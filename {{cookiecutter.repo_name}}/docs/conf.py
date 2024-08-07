@@ -27,8 +27,11 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
+    "sphinx.ext.inheritance_diagram",
+    "sphinx.ext.graphviz",
     "myst_parser",
 ]
+inheritance_edge_attrs = dict(color="gray")  # readable in darkmode too
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -58,6 +61,9 @@ autodoc_mock_imports = [
     "h5py",
     "pint",
     "sasmodels",
+    "chempy",
+    "graphviz",
+    "mcsas3",
 ]
 
 pygments_style = "trac"
