@@ -35,7 +35,7 @@ source_suffix = ".rst"
 master_doc = "index"
 project = {{"{0!r}".format(cookiecutter.project_name)|replace("'",'"')}}
 year = "{% if cookiecutter.year_from == cookiecutter.year_to %}{{ cookiecutter.year_from }}{% else %}{{ cookiecutter.year_from }}-{{ cookiecutter.year_to }}{% endif %}"
-author = {{"{0!r}".format(cookiecutter.full_name)|replace("'",'"')}}
+author = "{% for name in cookiecutter.full_names.split(',')|map('trim') -%}{% if loop.index > 1 %}{% if loop.index < loop.length %}, {% else %} and {% endif %}{% endif %}{{ name }}{%- endfor %}"
 copyright = "{0}, {1}".format(year, author)
 version = {{"{0!r}".format(cookiecutter.version)|replace("'",'"')}}
 release = version

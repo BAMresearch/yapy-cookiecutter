@@ -1,7 +1,6 @@
 [project]
 name = "{{ cookiecutter.distribution_name }}"
 description = {{ '{0!r}'.format(cookiecutter.project_short_description).lstrip('ub')|replace("'",'"') }}
-authors = [{ name = {{ '{0!r}'.format(cookiecutter.full_name).lstrip("ub")|replace("'",'"') }}, email = {{ '{0!r}'.format(cookiecutter.email).lstrip("ub")|replace("'",'"') }} }]
 dynamic = ["version", "readme"]
 license = {text = "{{ cookiecutter.license }}"}
 classifiers = [
@@ -39,7 +38,11 @@ classifiers = [
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
 ]
-
+{% for n in range(cookiecutter.author_count|int) %}
+[[project.authors]]
+name = "{{ cookiecutter.full_names.split(',')[n]|trim }}"
+email = "{{ cookiecutter.emails.split(',')[n]|trim }}"
+{% endfor %}
 [project.urls]
 homepage = "{{ cookiecutter.docs_url }}"
 documentation = "{{ cookiecutter.docs_url }}"

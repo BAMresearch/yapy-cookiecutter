@@ -1,7 +1,8 @@
 {
-    "full_name": "Ingo Breßler",
-    "email": "dev@ingobressler.net",
-    "website": "https://github.com/ibressler",
+    "author_count": "2",
+    "full_names": "{% for n in range(cookiecutter.author_count|int) %}{%- if loop.index > 1 %}, {% endif %}firstName{{n}} lastName{{n}}{% endfor %}",
+    "emails": "{% for n in range(cookiecutter.author_count|int) %}{%- if loop.index > 1 %}, {% endif %}firstName{{n}}.lastName{{n}}@example.com{% endfor %}",
+    "websites": "{% for n in range(cookiecutter.author_count|int) %}{%- if loop.index > 1 %}, {% endif %}https://blog{{n}}.example.com{% endfor %}",
     "project_name": "My Test Project",
     "repo_name": "{{ cookiecutter.project_name|lower|replace(' ','-') }}",
     "repo_hosting": ["github.com", "git.bam.de", "gitlab.com", "other domain not listed"],
