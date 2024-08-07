@@ -4,4 +4,4 @@ Installation
 
 At the command line::
 
-    pip install {{ cookiecutter.distribution_name }}
+    pip install git+https://{{cookiecutter.repo_hosting}}/{{cookiecutter.repo_userorg}}/{{cookiecutter.repo_name}}.git
