@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import shutil
 import sys
+import tox # make sure it's installed, needed in post-hook
 
 #print('NOTE', __file__)
 
