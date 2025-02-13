@@ -1,7 +1,8 @@
 # This file exists so you can easily regenerate your project.
 # run:
-#
-#    cookiecutter --overwrite-if-exists --config-file=.cookiecutterrc gh:BAMresearch/yapy-cookiecutter
+#  (cd ..; cookiecutter -f --config-file={{cookiecutter.repo_name}}/.cookiecutterrc gh:BAMresearch/yapy-cookiecutter)
+# or without answering questions:
+#  (cd ..; cookiecutter -f --config-file={{cookiecutter.repo_name}}/.cookiecutterrc --no-input gh:BAMresearch/yapy-cookiecutter)
 
 default_context:
 {%- for key, value in cookiecutter.items() %}
