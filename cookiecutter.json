@@ -5,7 +5,12 @@
     "websites": "{% for n in range(cookiecutter.author_count|int) %}{%- if loop.index > 1 %}, {% endif %}https://blog{{n}}.example.com{% endfor %}",
     "project_name": "My Test Project",
     "repo_name": "{{ cookiecutter.project_name|lower|replace(' ','-') }}",
-    "repo_hosting": ["github.com", "git.bam.de", "gitlab.com", "other domain not listed"],
+    "repo_hosting": [
+        "github.com",
+        "git.bam.de",
+        "gitlab.com",
+        "other domain not listed"
+    ],
     "repo_hosting_domain": "{{ cookiecutter.repo_hosting if cookiecutter.repo_hosting != 'other domain not listed' else '' }}",
     "repo_userorg": "BAMresearch",
     "docs_url": "https://{{ cookiecutter.repo_userorg }}.{{ cookiecutter.repo_hosting_domain|lower|replace('github.com','github.io') }}/{{ cookiecutter.repo_name }}",
@@ -17,7 +22,11 @@
     "year_from": "{% now 'utc', '%Y' %}",
     "year_to": "{% now 'utc', '%Y' %}",
     "version": "0.1.0",
-    "pypi_host": ["test.pypi.org", "pypi.org"],
+    "pypi_host": [
+        "test.pypi.org",
+        "pypi.org"
+    ],
+    "__license_source": "https://spdx.org/licenses/",
     "license": [
         "BSD-2-Clause",
         "BSD-3-Clause",
@@ -28,13 +37,20 @@
         "LGPL-3.0-or-later",
         "no"
     ],
-    "sphinx_theme": ["furo",
-                     "sphinx-rtd-theme",
-                     "python-docs-theme",
-                     "sphinx-py3doc-enhanced-theme",
-                     "sphinx-book-theme",
-                     "pydata-sphinx-theme"],
-    "extra_context": {"exclude_existing":
-        "['AUTHORS.rst', 'CHANGELOG.md', 'src/{{ cookiecutter.package_name }}/__init__.py']" },
-    "_copy_without_render": ["templates", "ci/templates/.github", "docs/_templates"]
+    "sphinx_theme": [
+        "furo",
+        "sphinx-rtd-theme",
+        "python-docs-theme",
+        "sphinx-py3doc-enhanced-theme",
+        "sphinx-book-theme",
+        "pydata-sphinx-theme"
+    ],
+    "extra_context": {
+        "exclude_existing": "['AUTHORS.rst', 'CHANGELOG.md', 'src/{{ cookiecutter.package_name }}/__init__.py']"
+    },
+    "_copy_without_render": [
+        "templates",
+        "ci/templates/.github",
+        "docs/_templates"
+    ]
 }
