@@ -1,3 +1,5 @@
+**Note**: This was superseeded by `yapy-copier-template <https://github.com/BAMresearch/yapy-copier-template>`_
+
 =================
 yapy-cookiecutter
 =================
